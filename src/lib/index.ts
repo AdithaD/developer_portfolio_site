@@ -80,7 +80,13 @@ export const software: GalleryItem[] = [
 	{
 		title: 'Job App',
 		description: 'An app that helps tradies track jobs and materials.',
-		externalLink: 'https://github.com/MightySmack/job-app',
+		externalLink: 'https://github.com/AdithaD/job-app',
 		src: 'software/job_app.png'
+	},
+	{
+		title: 'Dora the Explorer Bot',
+		description: 'A telegram bot that lets you emulate the amazing race with custom routes.',
+		externalLink: 'https://github.com/AdithaD/dora-the-explorer-bot',
+		src: 'software/dora_the_explorer_bot.png'
 	}
 ];
