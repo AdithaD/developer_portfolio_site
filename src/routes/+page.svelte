@@ -26,7 +26,7 @@
 <div class="flex w-full flex-col items-center text-orange-300">
 	<div class="flex h-[75vh] w-full items-center justify-center bg-cyan-950">
 		<div
-			class="flex h-full flex-col items-center justify-between border-l-2 border-r-2 border-cyan-950 bg-cyan-900 p-32 shadow-2xl md:flex-row lg:w-2/3"
+			class="flex h-full w-full flex-col items-center justify-between border-l-2 border-r-2 border-cyan-950 bg-cyan-900 p-12 shadow-2xl md:flex-row lg:w-2/3 lg:p-32"
 		>
 			<div class="flex flex-col">
 				<h1 class="text-5xl font-bold">Dora, the Developer</h1>
@@ -34,7 +34,7 @@
 				<div class="mt-12">
 					<p class="texl-2xl mb-2 font-semibold">Find me on:</p>
 					<a
-						class="flex w-36 items-center justify-evenly rounded-lg border-2 border-cyan-700 border-cyan-950 bg-orange-200 px-4 py-2 text-xl font-bold text-cyan-950 hover:bg-orange-300"
+						class="flex w-36 items-center justify-evenly rounded-lg border-2 border-cyan-950 bg-orange-200 px-4 py-2 text-xl font-bold text-cyan-950 hover:bg-orange-300"
 						href="https://github.com/adithad"
 						><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height="24px"
 							><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path
@@ -55,7 +55,7 @@
 	</div>
 	<div class="flex w-full justify-center bg-orange-300 text-cyan-700">
 		<div
-			class="flex justify-center space-x-16 border-l-2 border-r-2 border-cyan-950 bg-orange-200 p-16 lg:w-2/3"
+			class="flex justify-center border-r-2 border-cyan-950 bg-orange-200 p-12 lg:w-2/3 lg:border-l-2"
 		>
 			<div class="w-full">
 				<div class="flex space-x-4">
