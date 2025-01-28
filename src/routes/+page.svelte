@@ -3,16 +3,30 @@
 
 	import { games, software } from '$lib';
 	import GalleryCard from './GalleryCard.svelte';
+	import { fade } from 'svelte/transition';
 
 	type Views = 'games' | 'software';
 
 	let view: Views = $state<Views>('games');
+
+	let showScrollButton = $state(false);
+
+	$inspect(showScrollButton);
+
+	function scrollFunction() {
+		console.log(showScrollButton);
+		showScrollButton =
+			(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) &&
+			window.innerWidth < 1024;
+	}
 </script>
+
+<svelte:window on:scroll={scrollFunction} />
 
 <div class="flex w-full flex-col items-center text-orange-300">
 	<div class="flex h-[75vh] w-full items-center justify-center bg-cyan-950">
 		<div
-			class="flex h-full w-2/3 items-center justify-between border-l-2 border-r-2 border-cyan-950 bg-cyan-900 p-32 shadow-2xl"
+			class="flex h-full flex-col items-center justify-between border-l-2 border-r-2 border-cyan-950 bg-cyan-900 p-32 shadow-2xl md:flex-row lg:w-2/3"
 		>
 			<div class="flex flex-col">
 				<h1 class="text-5xl font-bold">Dora, the Developer</h1>
@@ -20,7 +34,7 @@
 				<div class="mt-12">
 					<p class="texl-2xl mb-2 font-semibold">Find me on:</p>
 					<a
-						class="flex w-36 items-center justify-evenly rounded-lg border-cyan-700 bg-orange-200 px-4 py-2 text-xl font-bold text-cyan-950 hover:bg-orange-300"
+						class="flex w-36 items-center justify-evenly rounded-lg border-2 border-cyan-700 border-cyan-950 bg-orange-200 px-4 py-2 text-xl font-bold text-cyan-950 hover:bg-orange-300"
 						href="https://github.com/adithad"
 						><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" height="24px"
 							><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path
@@ -30,14 +44,18 @@
 					>
 				</div>
 			</div>
-			<div class="aspect-square w-1/3">
-				<img src="hamster.png" alt="A hamster." class="h-full w-full object-cover" />
+			<div class="aspect-square">
+				<img
+					src="hamster.png"
+					alt="A hamster."
+					class="h-64 w-64 overflow-visible object-cover md:h-96 md:w-96"
+				/>
 			</div>
 		</div>
 	</div>
 	<div class="flex w-full justify-center bg-orange-300 text-cyan-700">
 		<div
-			class="flex w-2/3 justify-center space-x-16 border-l-2 border-r-2 border-cyan-950 bg-orange-200 p-16"
+			class="flex justify-center space-x-16 border-l-2 border-r-2 border-cyan-950 bg-orange-200 p-16 lg:w-2/3"
 		>
 			<div class="w-full">
 				<div class="flex space-x-4">
@@ -48,7 +66,7 @@
 						>My Software</TabButton
 					>
 				</div>
-				<div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+				<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
 					{#if view == 'games'}
 						{#each games as game}
 							<GalleryCard {...game}></GalleryCard>
@@ -59,6 +77,16 @@
 						{/each}
 					{/if}
 				</div>
+				{#if showScrollButton}
+					<button
+						class="fixed bottom-4 right-4 z-10 ml-4 self-end rounded-lg border-2 border-cyan-950 bg-cyan-700 px-4 py-1 text-2xl font-bold text-orange-300 hover:bg-cyan-200"
+						in:fade={{ duration: 200 }}
+						out:fade={{ duration: 200 }}
+						onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+					>
+						Top
+					</button>
+				{/if}
 			</div>
 		</div>
 	</div>
